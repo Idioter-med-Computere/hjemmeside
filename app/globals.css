@@ -41,6 +41,9 @@ html, body {
 }
 .btn-cta:hover { outline: 3px solid #9b5de5; outline-offset: 3px; transform: scale(1.02); }
 
+/* Optional purple glow for specific buttons only */
+.btn-glow:hover { box-shadow: 0 0 16px rgba(155, 93, 229, 0.35); }
+
 /***** Cards *****/
 .card {
   @apply rounded-xl bg-[#1e1e1e] border border-[#2a2a2a] transition duration-200 ease-smooth;
