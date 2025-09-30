@@ -6,7 +6,7 @@ export default function HomePage() {
     <div className="space-y-10">
       <section className="relative overflow-hidden rounded-2xl border border-[#2a2a2a]">
         <Image
-          src="/images/cover.png"
+          src="/images/cover.png?v=2"
           alt="Idioter med computere cover"
           width={2400}
           height={1200}
@@ -21,8 +21,8 @@ export default function HomePage() {
           <p className="mt-4 text-lg sm:text-xl text-[#bbbbbb] max-w-2xl mx-auto">
             En tech-podcast om alt det dumme, folk laver med computere.
           </p>
-          <div className="mt-8">
-            <Link href="/subscribe" className="btn btn-white">
+          <div className="mt-10">
+            <Link href="/subscribe" className="btn-cta">
               Abonnér
             </Link>
           </div>

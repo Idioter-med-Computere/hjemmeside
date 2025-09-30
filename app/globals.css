@@ -27,6 +27,20 @@ html, body {
 }
 .btn-white:hover { outline: 2px solid #9b5de5; outline-offset: 2px; }
 
+/* Huge purple CTA */
+.btn-cta {
+  @apply bg-[#9b5de5] text-white font-bold rounded-xl;
+  padding: 1rem 2rem; /* base fallback */
+  font-size: 1.5rem; /* base fallback */
+}
+@media (min-width: 640px) {
+  .btn-cta { padding: 1.25rem 2.5rem; font-size: 1.75rem; }
+}
+@media (min-width: 768px) {
+  .btn-cta { padding: 1.5rem 3rem; font-size: 2rem; }
+}
+.btn-cta:hover { outline: 3px solid #9b5de5; outline-offset: 3px; transform: scale(1.02); }
+
 /***** Cards *****/
 .card {
   @apply rounded-xl bg-[#1e1e1e] border border-[#2a2a2a] transition duration-200 ease-smooth;
