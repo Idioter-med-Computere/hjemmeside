@@ -1,26 +1,42 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-bungee: 'Bungee', system-ui;
+  --font-inter: 'Inter', system-ui;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html, body {
+  height: 100%;
+  background: #121212;
+  color: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/***** Buttons *****/
+.btn {
+  @apply inline-flex items-center justify-center px-5 py-3 rounded-md font-medium transition duration-200 ease-smooth;
 }
+.btn-dark {
+  @apply bg-[#1e1e1e] text-white border border-[#2a2a2a];
+}
+.btn-dark:hover { border-color: #9b5de5; }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.btn-white {
+  @apply bg-white text-black;
 }
+.btn-white:hover { outline: 2px solid #9b5de5; outline-offset: 2px; }
+
+/***** Cards *****/
+.card {
+  @apply rounded-xl bg-[#1e1e1e] border border-[#2a2a2a] transition duration-200 ease-smooth;
+}
+.card:hover { transform: scale(1.01); border-color: #9b5de5; }
+
+/***** Links *****/
+.link { @apply text-white; }
+.link:hover { text-decoration-line: underline; text-underline-offset: 6px; text-decoration-color: #9b5de5; }
+
+/***** Page transitions *****/
+.page-enter { opacity: 0; }
+.page-enter-active { opacity: 1; transition: opacity 300ms ease; }
