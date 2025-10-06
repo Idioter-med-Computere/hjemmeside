@@ -1,110 +1,102 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import Parser from 'rss-parser'
+import Avatar from '@/components/Avatar'
 
-function formatDate(dateString: string) {
-  const d = new Date(dateString)
-  const dd = String(d.getDate()).padStart(2, '0')
-  const mm = String(d.getMonth() + 1).padStart(2, '0')
-  const yyyy = d.getFullYear()
-  return `${dd}.${mm}.${yyyy}`
+type Episode = {
+  title: string
+  date: string | null
+  snippet: string
+  audio: string | null
+  link: string
+}
+
+async function getLatest(): Promise<Episode[]> {
+  const url = process.env.PODCAST_RSS_URL!
+  const parser = new Parser({ headers: { 'user-agent': 'IdioterMedComputere/1.0' } })
+  const feed = await parser.parseURL(url)
+  return (feed.items ?? []).slice(0, 3).map((it: any) => ({
+    title: it.title ?? 'Uden titel',
+    date: it.isoDate ?? it.pubDate ?? null,
+    snippet: String((it.contentSnippet ?? it.content ?? '').replace(/<[^>]+>/g, '')).slice(0, 180),
+    audio: it.enclosure?.url ?? null,
+    link: it.link ?? '#',
+  }))
 }
 
 export default async function HomePage() {
-  const rssUrl = process.env.PODCAST_RSS_URL
-  const parser = new Parser({ headers: { 'user-agent': 'IdioterMedComputere/1.0' } })
-  const feed = rssUrl ? await parser.parseURL(rssUrl) : { items: [] as any[] }
-  const latest = (feed.items || []).slice(0, 3)
+  const latest = await getLatest()
 
   return (
-    <div className="space-y-12">
-      <section className="relative overflow-hidden rounded-2xl border border-[#2a2a2a]">
-        <Image
-          src="/images/cover.png?v=2"
-          alt="Idioter med computere cover"
-          width={2400}
-          height={1200}
-          className="absolute inset-0 h-full w-full object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="relative z-10 px-8 py-20 text-center">
-          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-black tracking-tight">
-            Idioter med computere
-          </h1>
-          <p className="mt-4 text-lg sm:text-xl text-[#bbbbbb] max-w-2xl mx-auto">
-            En tech-podcast om alt det dumme, folk laver med computere.
-          </p>
-          <div className="mt-10">
-            <Link href="/subscribe" className="btn-cta btn-glow">
-              Abonnér
-            </Link>
+    <div className="bg-[--bg] text-[--text]">
+      {/* Hero */}
+      <section className="relative w-full">
+        <div className="relative w-full min-h-[42svh] md:min-h-[49svh] overflow-hidden">
+          <Image src="/images/cover.png" alt="Idioter med computere cover" fill priority sizes="100vw" className="object-cover" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/60 to-transparent" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center px-6 max-w-4xl">
+              <h1 className="font-display tracking-wide text-4xl md:text-6xl uppercase">Idioter med computere</h1>
+              <p className="mt-3 text-[--text-dim] text-lg md:text-xl">En tech-podcast om alt det dumme, folk laver med computere.</p>
+              <a href="/subscribe" className="mt-8 inline-flex items-center justify-center bg-[--accent] text-white font-display font-bold uppercase rounded-2xl px-10 py-5 text-2xl shadow-[0_0_40px_rgba(155,93,229,0.4)] hover:ring-2 hover:ring-[--accent]" aria-label="Abonnér på Idioter med computere">Abonnér</a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Intro */}
-      <section className="max-w-3xl mx-auto text-center space-y-4">
-        <p className="text-[#ffffff]">
-          En podcast om digital teknologi – som den bliver brugt, og som den bliver bygget.
-          Hvis du gerne vil forstå den teknologi, der former din hverdag – og hvorfor den tit føles mærkelig, besværlig eller uigennemskuelig – så er du kommet det rigtige sted hen.
-          Idioter med computere er en podcast fra to mennesker, der bygger teknologi til hverdag. Vi taler om de digitale løsninger, vi alle sammen er omgivet af, og vi går tæt på, hvordan de bliver til i virkeligheden: idéer, misforståelser, beslutninger, kompromiser – og virkelige mennesker, der prøver at få det hele til at hænge sammen.
-        </p>
-      </section>
-
-      {/* Latest episodes */}
-      <section className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h2 className="font-display text-2xl">Seneste episoder</h2>
-          <Link href="/episodes" className="link">Se alle episoder</Link>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {latest.slice(0, 3).map((item: any) => {
-            const description = (item.contentSnippet || item.content || '').slice(0, 200)
-            return (
-              <article key={item.guid || item.link} className="card p-5">
-                <h3 className="font-display text-xl mb-1">{item.title}</h3>
-                <p className="text-[#bbbbbb] text-sm">{item.pubDate ? formatDate(item.pubDate) : ''}</p>
-                <p className="mt-3 text-white">{description}{description.length === 200 ? '…' : ''}</p>
-                <div className="mt-4">
-                  <a href={item.enclosure?.url || item.link} target="_blank" rel="noopener noreferrer" className="btn btn-dark btn-glow">Lyt nu</a>
-                </div>
-              </article>
-            )
-          })}
+      <section className="section">
+        <div className="card p-6 md:p-8 text-center md:text-lg leading-relaxed text-[--text]">
+          <p>En podcast om digital teknologi – som den bliver brugt, og som den bliver bygget. Hvis du gerne vil forstå den teknologi, der former din hverdag – og hvorfor den tit føles mærkelig, besværlig eller uigennemskuelig – så er du kommet det rigtige sted hen.</p>
+          <p className="mt-4 text-[--text-dim]">Idioter med computere er en podcast fra to mennesker, der bygger teknologi til hverdag. Vi taler om de digitale løsninger, vi alle sammen er omgivet af, og vi går tæt på, hvordan de bliver til i virkeligheden: idéer, misforståelser, beslutninger, kompromiser – og virkelige mennesker, der prøver at få det hele til at hænge sammen.</p>
         </div>
       </section>
 
-      {/* Brevkasse teaser */}
-      <section className="card p-6 text-center">
-        <p className="text-white">
-          Har du selv oplevet idiotiske ting med computere? Så skriv til os – måske tager vi dit brev med i podcasten.
-        </p>
-        <div className="mt-4">
-          <Link href="/brevkasse" className="btn btn-dark btn-glow">Skriv til os</Link>
+      {/* Latest Episodes */}
+      <section className="section space-y-6">
+        <div className="flex items-baseline justify-between">
+          <h2 className="font-display text-xl tracking-wide">SENESTE EPISODER</h2>
+          <a href="/episodes" className="text-[--text-dim] hover:text-white">Se alle episoder</a>
+        </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {latest.map((ep) => (
+            <article key={ep.link} className="card p-6 hover:ring-[--accent] transition">
+              <h3 className="text-white font-semibold">{ep.title}</h3>
+              <p className="text-[--text-dim] text-sm mt-1">{ep.date ? new Date(ep.date).toLocaleDateString('da-DK') : ''}</p>
+              <p className="mt-3 text-[--text] line-clamp-3">{ep.snippet}{ep.snippet.length === 180 ? '…' : ''}</p>
+              <div className="mt-4">
+                <a href={ep.audio || ep.link} target="_blank" rel="noopener noreferrer" className="btn btn-outline">Lyt nu</a>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* Team */}
-      <section className="space-y-4">
-        <h2 className="font-display text-2xl">Teamet bag</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="card p-6 flex items-start gap-4">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#2a2a2a] flex items-center justify-center font-display text-lg">M</div>
+      {/* Brevkasse Callout */}
+      <section className="section">
+        <div className="card bg-[--panel-2] p-6 md:p-8 text-center">
+          <p className="text-[--text]">Har du selv oplevet idiotiske ting med computere? Så skriv til os – måske tager vi dit brev med i podcasten.</p>
+          <a href="/brevkasse" className="btn btn-outline mt-4">Skriv til os</a>
+        </div>
+      </section>
+
+      {/* Teamet bag */}
+      <section className="section">
+        <h2 className="font-display text-xl tracking-wide mb-6">TEAMET BAG</h2>
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="card p-6 md:p-8 flex gap-4 items-start">
+            <Avatar src="/team/magnus.jpg" alt="Magnus Høholt Kaspersen" initials="M" className="size-28" />
             <div>
-              <h3 className="font-display text-xl">Magnus Høholt Kaspersen</h3>
-              <p className="text-[#ffffff] mt-2">
-                Partner & CTO i Creative Oak. Ekspert i AI og uddannelse. Adjunkt på Aarhus Tech. Har forsket i, hvordan mennesker lærer teknologi, og hvordan vi kan bruge AI i praksis. Bringer de store linjer og det menneskelige perspektiv ind i samtalerne.
-              </p>
+              <h3 className="font-display">Magnus Høholt Kaspersen</h3>
+              <p className="text-[--text-dim]">Partner & CTO i Creative Oak. Ekspert i AI og uddannelse. Adjunkt på Aarhus Tech.</p>
+              <p className="mt-2 text-[--text-dim]">Bringer de store linjer og det menneskelige perspektiv ind i samtalerne.</p>
             </div>
           </div>
-          <div className="card p-6 flex items-start gap-4">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#2a2a2a] flex items-center justify-center font-display text-lg">D</div>
+          <div className="card p-6 md:p-8 flex gap-4 items-start">
+            <Avatar src="/team/daniel.jpg" alt="Daniel Graungaard" initials="D" className="size-28" />
             <div>
-              <h3 className="font-display text-xl">Daniel Graungaard</h3>
-              <p className="text-[#ffffff] mt-2">
-                Fullstack-udvikler med speciale i mobil, både cross-platform og native. Tidligere CTO i en scale-up og nu freelancer, hvor han hjælper virksomheder fra idé til færdig app. Vant til at træffe de svære tekniske valg, rydde op i arkitektur og skabe processer, der får teams til at fungere. Når han ikke bygger apps, laver han frivillig ledelse og logistik i FDF.
-              </p>
+              <h3 className="font-display">Daniel Graungaard</h3>
+              <p className="text-[--text-dim]">Fullstack-udvikler med speciale i mobil. Tidligere CTO i en scale-up og nu freelancer.</p>
+              <p className="mt-2 text-[--text-dim]">Skaber processer, rydder op i arkitektur, og får teams til at fungere.</p>
             </div>
           </div>
         </div>
