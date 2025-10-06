@@ -43,11 +43,13 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Intro */}
-      <section className="section">
-        <div className="card p-6 md:p-8 text-center md:text-lg leading-relaxed text-[--text]">
-          <p>En podcast om digital teknologi – som den bliver brugt, og som den bliver bygget. Hvis du gerne vil forstå den teknologi, der former din hverdag – og hvorfor den tit føles mærkelig, besværlig eller uigennemskuelig – så er du kommet det rigtige sted hen.</p>
-          <p className="mt-4 text-[--text-dim]">Idioter med computere er en podcast fra to mennesker, der bygger teknologi til hverdag. Vi taler om de digitale løsninger, vi alle sammen er omgivet af, og vi går tæt på, hvordan de bliver til i virkeligheden: idéer, misforståelser, beslutninger, kompromiser – og virkelige mennesker, der prøver at få det hele til at hænge sammen.</p>
+      {/* Intro - editorial full-width section */}
+      <section className="w-full bg-gradient-to-b from-[#101010] to-[#080808] border-t-[3px] border-[--accent] py-20">
+        <div className="page">
+          <div className="max-w-3xl mx-auto text-center text-[#e5e7eb] leading-relaxed text-lg md:text-xl font-medium">
+            <p>En podcast om digital teknologi – som den bliver brugt, og som den bliver bygget. Hvis du gerne vil forstå den teknologi, der former din hverdag – og hvorfor den tit føles mærkelig, besværlig eller uigennemskuelig – så er du kommet det rigtige sted hen.</p>
+            <p className="mt-6 text-[--text-dim]">Idioter med computere er en podcast fra to mennesker, der bygger teknologi til hverdag. Vi taler om de digitale løsninger, vi alle sammen er omgivet af, og vi går tæt på, hvordan de bliver til i virkeligheden: idéer, misforståelser, beslutninger, kompromiser – og virkelige mennesker, der prøver at få det hele til at hænge sammen.</p>
+          </div>
         </div>
       </section>
 
