@@ -36,9 +36,12 @@ html, body {
 
 /***** Buttons *****/
 .btn { @apply inline-flex items-center justify-center rounded-lg px-5 py-3 transition; }
-.btn-dark { @apply bg-[--panel] text-white ring-1 ring-[--border]; }
-.btn-dark:hover { box-shadow: 0 0 30px rgba(155, 93, 229, 0.35); }
-
+.btn-dark {
+  @apply bg-[--panel] text-white border border-transparent;
+}
+.btn-dark:hover {
+  @apply border-[--accent];
+}
 .btn-white { @apply bg-white text-black; }
 .btn-white:hover { box-shadow: 0 0 30px rgba(155, 93, 229, 0.35); }
 

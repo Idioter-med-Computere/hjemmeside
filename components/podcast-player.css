@@ -1,0 +1,38 @@
+/* Fjern default baggrund og lav mørkt tema */
+.rhap_container.custom-podcast-player {
+    background: #1a1a1a;
+    color: #fff;
+    box-shadow: none;
+    border-top: 3px solid var(--accent);
+    font-family: var(--font-display, sans-serif);
+}
+
+/* Progress-bar */
+.rhap_progress-bar {
+    background-color: #333;
+    height: 5px;
+    border-radius: 9999px;
+}
+.rhap_progress-filled {
+    background-color: var(--accent);
+}
+.rhap_download-progress {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Kontrolknapper */
+.rhap_main-controls-button svg {
+    color: white;
+    transition: color 0.2s ease;
+}
+.rhap_main-controls-button:hover svg {
+    color: var(--accent);
+}
+
+/* Time og layout */
+.rhap_time {
+    color: #bbb;
+    font-size: 0.8rem;
+}
+
+/* Volume skjules (vi har customVolumeControls=[]) */

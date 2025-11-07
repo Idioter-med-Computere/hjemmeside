@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="da">
-      <body className={`${bungee.variable} ${inter.variable} min-h-screen font-sans text-white bg-[#121212]`}>
+      <html lang="da" className={`${bungee.variable} ${inter.variable}`}>
+      <body className={`min-h-screen font-sans text-white bg-[#121212]`}>
         <div className="sticky top-0 z-50 backdrop-blur bg-black/80 border-b border-[#1e1e1e]">
           <div className="mx-auto max-w-6xl px-4">
             <nav className="flex items-center justify-between py-4">
@@ -22,7 +22,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Link href="/" className="font-display text-xl tracking-wide link">Idioter med computere</Link>
                 <div className="hidden sm:flex items-center gap-4 text-sm">
                   <Link href="/" className="link">Forside</Link>
-                  <Link href="/subscribe" className="link">Abonnér</Link>
                   <Link href="/episodes" className="link">Episoder</Link>
                   <Link href="/brevkasse" className="link">Brevkasse</Link>
                 </div>
