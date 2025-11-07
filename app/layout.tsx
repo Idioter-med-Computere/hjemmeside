@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </nav>
           </div>
         </div>
-        <main className="mx-auto max-w-6xl px-4 py-8 page-enter page-enter-active">
+        <main className="page py-8 page-enter page-enter-active">
           {children}
         </main>
         <footer className="mt-16 border-t border-[#1e1e1e] py-8 text-center text-sm text-[#bbbbbb] bg-black/60">
