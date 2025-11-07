@@ -89,6 +89,19 @@ html, body {
     @apply border border-[--border] text-white hover:border-[--accent] hover:shadow-[0_0_20px_rgba(155,93,229,0.25)];
 }
 
+.btn-purple {
+    @apply inline-flex items-center justify-center
+    bg-[--accent] text-white font-sans font-semibold
+    rounded-lg px-6 py-3
+    transition duration-200 ease-in-out
+    disabled:opacity-60;
+}
+
+.btn-purple:hover {
+    background-color: #b47eff; /* slightly brighter purple */
+    box-shadow: 0 0 20px rgba(155, 93, 229, 0.4);
+}
+
 /* Huge purple CTA (kept if needed elsewhere) */
 .btn-cta {
     @apply bg-[--accent] text-white font-bold rounded-xl;
@@ -116,7 +129,11 @@ html, body {
 }
 
 .card:hover {
-    @apply ring-[--accent];
+
+}
+
+.brevkasse-card {
+    @apply bg-[#151515];
 }
 
 /***** Links *****/

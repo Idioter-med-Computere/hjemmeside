@@ -19,10 +19,10 @@ export async function POST(req: Request) {
 
   await sendEmail({
     fromName: parsed.data.name,
-    to: 'brev@idiotermedcomputere.dk',
+    to: 'hej@jegerdaniel.dk',
     subject: `Brev fra ${parsed.data.name}`,
     text: parsed.data.letter,
   })
 
   return NextResponse.json({ ok: true })
-} 
+}

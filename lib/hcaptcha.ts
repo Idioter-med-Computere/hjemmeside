@@ -1,6 +1,6 @@
 export async function verifyHCaptcha(token: string | undefined) {
   if (!token) return false
-  const secret = process.env.HCAPTCHA_SECRET
+  const secret = process.env.HCAPTCHA_SECRET_KEY
   if (!secret) return false
   const res = await fetch('https://hcaptcha.com/siteverify', {
     method: 'POST',
