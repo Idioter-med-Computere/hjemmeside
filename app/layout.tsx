@@ -8,7 +8,7 @@ const bungee = Bungee({ weight: '400', subsets: ['latin'], variable: '--font-bun
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 
 export const metadata: Metadata = {
-  title: 'Idioter med computere',
+  title: 'Idioter Med Computere',
   description: 'En tech-podcast om alt det dumme, folk laver med computere.',
 }
 

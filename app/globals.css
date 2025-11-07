@@ -102,6 +102,13 @@ html, body {
     box-shadow: 0 0 20px rgba(155, 93, 229, 0.4);
 }
 
+.required-star {
+    color: var(--accent);
+    margin-left: 0.25rem;
+    font-weight: 600;
+    font-size: 1,2rem;
+}
+
 /* Huge purple CTA (kept if needed elsewhere) */
 .btn-cta {
     @apply bg-[--accent] text-white font-bold rounded-xl;

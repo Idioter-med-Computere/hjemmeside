@@ -45,10 +45,10 @@ export default function BrevkassePage() {
         const newErrors: { [key: string]: string } = {}
 
         // Navn
-        if (name.trim().length < 2) newErrors.name = 'Du skal skrive dit navn.'
+        if (name.trim().length < 2) newErrors.name = 'Du skal skrive et navn for at kunne sende brevet.'
 
         // Brev
-        if (letter.trim().length < 2) newErrors.letter = 'Dit brev må ikke være tomt.'
+        if (letter.trim().length < 2) newErrors.letter = 'Hvis du vil sende os et brev, skal du skrive noget i dette felt - ellers er der ikke så meget at sende.'
 
         // E-mail
         const cleanEmail = email.trim() // fjerner mellemrum før/efter
@@ -139,12 +139,11 @@ export default function BrevkassePage() {
             >
                 {/* Navn */}
                 <div>
-                    <label className="block text-sm mb-1">Navn</label>
+                    <label className="block text-sm mb-1">Navn<span className="required-star">*</span> <span className="text-[#888]">(Behøver ikke være dit navn, det kan også være opdigtet, vi dømmer ikke)</span></label>
                     <input
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         className="w-full rounded-md bg-[#1e1e1e] border border-[#2a2a2a] px-3 py-2 focus:outline-none"
-                        required
                     />
                     {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                 </div>
@@ -152,7 +151,7 @@ export default function BrevkassePage() {
                 {/* Email */}
                 <div>
                     <label className="block text-sm mb-1">
-                        Din e-mail <span className="text-[#888]">(ikke et krav)</span>
+                        Din e-mail <span className="text-[#888]">(e-mail er ikke et krav, men den gør det lettere for os at stille opfølgende spørgsmål)</span>
                     </label>
                     <input
                         value={email}
@@ -165,13 +164,12 @@ export default function BrevkassePage() {
 
                 {/* Brev */}
                 <div className="flex-1 flex flex-col min-h-[30vh]">
-                    <label className="block text-sm mb-1">Brev</label>
+                    <label className="block text-sm mb-1">Brev<span className="required-star">*</span></label>
                     <textarea
                         value={letter}
                         onChange={(e) => setLetter(e.target.value)}
                         placeholder={typing}
                         className="flex-1 min-h-0 w-full rounded-md bg-[#1e1e1e] border border-[#2a2a2a] px-3 py-2 focus:outline-none resize-none"
-                        required
                     />
                     {errors.letter && <p className="text-red-500 text-sm mt-1">{errors.letter}</p>}
                 </div>
