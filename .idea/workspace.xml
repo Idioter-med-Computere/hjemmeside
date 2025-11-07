@@ -8,11 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/api/brevkasse/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/brevkasse/route.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/brevkasse/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/brevkasse/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/email.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/email.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/hcaptcha.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/hcaptcha.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/episodes/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/episodes/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/episodes/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/episodes/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +37,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "jsx.switch.disabled": "true",
     "last_opened_file_path": "/Users/daniel/Git/idioter-med-computere/hjemmeside",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -70,7 +69,7 @@
       <updated>1759223899223</updated>
       <workItem from="1759223900518" duration="6871000" />
       <workItem from="1762349751553" duration="13969000" />
-      <workItem from="1762534827249" duration="9376000" />
+      <workItem from="1762534827249" duration="13435000" />
     </task>
     <servers />
   </component>
@@ -88,30 +87,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/lib/email.ts</url>
-          <line>10</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/api/brevkasse/route.ts</url>
-          <line>12</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/api/brevkasse/route.ts</url>
-          <line>20</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/api/brevkasse/route.ts</url>
-          <line>16</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/app/api/brevkasse/route.ts</url>
           <line>6</line>

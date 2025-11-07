@@ -17,7 +17,7 @@ export default async function EpisodesPage() {
     const feed = rssUrl ? await parser.parseURL(rssUrl) : { items: [] as any[] }
 
     return (
-        <section className="relative w-full py-20 overflow-hidden">
+        <section className="relative w-full overflow-hidden">
             {/* gradient transitions */}
 
             <div className="page relative z-10 space-y-10">

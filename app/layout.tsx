@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html lang="da" className={`${bungee.variable} ${inter.variable}`}>
       <body className="min-h-screen font-sans text-white bg-[#121212]">
       <Header />
-      <main className="page py-8 page-enter page-enter-active">{children}</main>
+      <main className="page py-12 md:py-20 page-enter page-enter-active">{children}</main>
       <footer className="mt-16 border-t border-[#1e1e1e] py-8 text-center text-sm text-[#bbbbbb] bg-black/60">
         © 2025 Idioter med computere
       </footer>

@@ -10,7 +10,7 @@ export default async function EpisodePage(props: { params: Promise<{ slug: strin
     if (!episode) return <p>Episode ikke fundet</p>
 
     return (
-        <article className="relative w-full bg-[#080808] py-20 overflow-hidden">
+        <article className="relative w-full bg-[#080808] overflow-hidden">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-[60px] bg-gradient-to-b from-[#101010] to-transparent"/>
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[60px] bg-gradient-to-t from-[#101010] to-transparent"/>
 
