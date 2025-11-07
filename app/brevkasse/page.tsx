@@ -73,7 +73,7 @@ export default function BrevkassePage() {
 
         // Captcha
         const token = (window as any).hcaptcha?.getResponse?.() || ''
-        if (!token) newErrors.token = 'Du skal udfylde captcha.'
+        if (!token) newErrors.token = 'Tryk i boksen ovenfor og følg vejledningen for at bekræfte, at du er et menneske.'
 
         return {valid: Object.keys(newErrors).length === 0, errors: newErrors, token}
     }
@@ -122,7 +122,7 @@ export default function BrevkassePage() {
 
     return (
         <div className="flex flex-col min-h-[90svh] px-4 sm:px-6 md:px-8">
-            <Script src="https://hcaptcha.com/1/api.js" async defer />
+            <Script src="https://hcaptcha.com/1/api.js?hl=da" async defer />
 
             <div className="ml-1">
             <h1 className="font-display text-4xl mb-4">Brevkasse</h1>
