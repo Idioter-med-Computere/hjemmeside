@@ -196,11 +196,11 @@ export default function BrevkassePage() {
                 <p className="text-sm text-[#bbbbbb]">
                     Eller send dit brev direkte til{' '}
                     <a
-                        href="mailto:brev@idiotermedcomputere.dk"
+                        href="mailto:brev@idioter.med.computer"
                         className="underline"
                         style={{ textDecorationColor: '#9b5de5' }}
                     >
-                        brev@idiotermedcomputere.dk
+                        brev@idioter.med.computer
                     </a>
                 </p>
             </form>
