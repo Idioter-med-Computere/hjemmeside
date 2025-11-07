@@ -190,7 +190,7 @@ export default async function HomePage() {
                                 <span className="pointer-events-none absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-transparent via-[--accent] to-transparent opacity-70"/>
                                 <div className="p-6 md:p-8 flex gap-4 items-start">
                                     <Avatar
-                                        src="/team/magnus.jpg"
+                                        src="/images/magnus.jpeg"
                                         alt="Magnus Høholt Kaspersen"
                                         initials="M"
                                         className="size-28 flex-shrink-0"
@@ -200,7 +200,7 @@ export default async function HomePage() {
                                             Magnus Høholt Kaspersen
                                         </h3>
                                         <p className="text-[--text-dim] mt-1">
-                                            Partner & CTO i Creative Oak. Ekspert i AI og uddannelse. Adjunkt på Aarhus Tech.
+                                            Partner & CTO i Creative Oak. Ekspert i AI og uddannelse.
                                         </p>
                                         <p className="mt-2 text-[--text-dim]">
                                             Bringer de store linjer og det menneskelige perspektiv ind i samtalerne.
@@ -214,7 +214,7 @@ export default async function HomePage() {
                                 <span className="pointer-events-none absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-transparent via-[--accent] to-transparent opacity-70"/>
                                 <div className="p-6 md:p-8 flex gap-4 items-start">
                                     <Avatar
-                                        src="/team/daniel.jpg"
+                                        src="/images/daniel.jpeg"
                                         alt="Daniel Graungaard"
                                         initials="D"
                                         className="size-28 flex-shrink-0"
@@ -224,10 +224,10 @@ export default async function HomePage() {
                                             Daniel Graungaard
                                         </h3>
                                         <p className="text-[--text-dim] mt-1">
-                                            Fullstack-udvikler med speciale i mobil. Tidligere CTO i en scale-up og nu freelancer.
+                                            Feeelance Fullstack-udvikler som hjælper virksomheder med at bygge digitale produkter.
                                         </p>
                                         <p className="mt-2 text-[--text-dim]">
-                                            Skaber processer, rydder op i arkitektur og får teams til at fungere.
+                                            Altid klar med skarpe holdninger og sure opstød over teknologi.
                                         </p>
                                     </div>
                                 </div>
