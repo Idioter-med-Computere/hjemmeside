@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Parser from 'rss-parser'
 import MiniPodcastPlayer from '@/components/MiniPodcastPlayer'
+import { getSlug } from '@/lib/podcastutils'
 
 function formatDate(dateString: string) {
     const d = new Date(dateString)
@@ -10,24 +11,14 @@ function formatDate(dateString: string) {
     return `${dd}.${mm}.${yyyy}`
 }
 
-function getSlug(link: string) {
-    try {
-        return link.split('/').filter(Boolean).pop()
-    } catch {
-        return ''
-    }
-}
-
 export default async function EpisodesPage() {
     const rssUrl = process.env.PODCAST_RSS_URL
     const parser = new Parser({ headers: { 'user-agent': 'IdioterMedComputere/1.0' } })
     const feed = rssUrl ? await parser.parseURL(rssUrl) : { items: [] as any[] }
 
     return (
-        <section className="relative w-full bg-[#080808] py-20 overflow-hidden">
+        <section className="relative w-full py-20 overflow-hidden">
             {/* gradient transitions */}
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-[60px] bg-gradient-to-b from-[#101010] to-transparent" />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[60px] bg-gradient-to-t from-[#101010] to-transparent" />
 
             <div className="page relative z-10 space-y-10">
                 <h1 className="font-display text-4xl">Episoder</h1>

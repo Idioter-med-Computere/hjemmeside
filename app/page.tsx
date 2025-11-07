@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Parser from 'rss-parser'
 import Avatar from '@/components/Avatar'
 import SectionGradients from '@/components/SectionGradients'
+import { getSlug } from '@/lib/podcastutils'
 
 type Episode = {
     title: string
@@ -73,7 +74,7 @@ export default async function HomePage() {
                 </div>            </section>
 
             {/* Intro - quote section */}
-            <section className="relative w-full bg-gradient-to-b from-[#101010] to-[#080808] border-t-[3px] border-[--accent] py-28 overflow-hidden">
+            <section className="relative w-full bg-gradient-to-b from-[#101010] to-[#080808] border-t-[3px] border-[--accent] py-10 md:py-28 overflow-hidden">
                 {/* top & bottom gradient overlays */}
                 <SectionGradients />
                 <div className="page max-w-3xl md:max-w-5xl xl:max-w-[100%] mx-auto text-left text-white leading-relaxed relative z-10">
@@ -129,9 +130,7 @@ export default async function HomePage() {
                                         </p>
                                         <div className="mt-5">
                                             <a
-                                                href={ep.audio || ep.link}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
+                                                href={`/episodes/${getSlug(ep.link ?? '')}`}
                                                 className="inline-flex items-center justify-center rounded-lg border border-white/20 px-4 py-2 text-sm hover:border-[--accent] hover:text-[--accent] transition"
                                             >
                                                 Lyt nu
@@ -152,9 +151,9 @@ export default async function HomePage() {
 
                 <div className="page relative z-10">
                     <div className="page-inner">
-                        <div className="max-w-3xl mx-auto text-center space-y-6">
+                        <div className="text-center space-y-6">
                             <div className="w-24 h-[3px] bg-[--accent] mx-auto mb-6 opacity-80"></div>
-                            <p className="text-[--text] text-lg md:text-xl leading-relaxed">
+                            <p className="section-text">
                                 Har du selv oplevet idiotiske ting med computere?
                                 Skriv til os – måske tager vi dit brev med i podcasten.
                             </p>
