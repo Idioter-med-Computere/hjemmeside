@@ -103,7 +103,7 @@ export default async function HomePage() {
                         <div className="flex items-end justify-between">
                             <div>
                                 <h2 className="font-display text-xl tracking-wide">SENESTE EPISODER</h2>
-                                <div className="w-24 h-[3px] bg-[--accent] mt-2"></div>
+                                <div className="w-24 h-[3px] bg-[--accent] mt-2 mb-8"></div>
                             </div>
                             <a href="/episodes" className="text-[--text-dim] hover:text-white transition-colors">
                                 Se alle episoder
@@ -179,7 +179,7 @@ export default async function HomePage() {
                         {/* Sektionstitel */}
                         <div className="mb-10">
                             <h2 className="font-display text-xl tracking-wide">TEAMET BAG</h2>
-                            <div className="w-24 h-[3px] bg-[--accent] mt-2"></div>
+                            <div className="w-24 h-[3px] bg-[--accent] mt-2 mb-8"></div>
                         </div>
 
                         {/* Grid med medlemmer */}
