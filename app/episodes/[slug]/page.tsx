@@ -3,7 +3,9 @@ import PodcastPlayer from '@/components/PodcastPlayer'
 import parse from 'html-react-parser'
 
 export default async function EpisodePage(props: { params: Promise<{ slug: string }> }) {
-    const parser = new Parser()
+    const parser = new Parser({
+        customFields: { item: ['content:encoded'] },
+    })
     const {slug} = await props.params
     const feed = await parser.parseURL(process.env.NEXT_PUBLIC_PODCAST_RSS_URL!)
     const episode = feed.items.find((i: any) => i.link?.endsWith(slug))
@@ -22,7 +24,7 @@ export default async function EpisodePage(props: { params: Promise<{ slug: strin
 
                 <h2 className="font-display text-xl mt-12 mb-4">Shownotes</h2>
                 <div className="prose prose-invert">
-                    {parse(episode['content:encoded'] || episode.contentSnippet || '')}
+                    {parse(episode['content:encoded'] || episode.content || episode.contentSnippet || '')}
                 </div>
             </div>
         </article>

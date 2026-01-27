@@ -11,6 +11,7 @@
     "postinstall": "next telemetry disable || true"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.19",
     "html-react-parser": "^5.2.8",
     "lucide-react": "^0.552.0",
     "mailersend": "^2.6.0",
