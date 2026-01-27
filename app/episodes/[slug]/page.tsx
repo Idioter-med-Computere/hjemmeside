@@ -5,7 +5,7 @@ import parse from 'html-react-parser'
 export default async function EpisodePage(props: { params: Promise<{ slug: string }> }) {
     const parser = new Parser()
     const {slug} = await props.params
-    const feed = await parser.parseURL(process.env.PODCAST_RSS_URL!)
+    const feed = await parser.parseURL(process.env.NEXT_PUBLIC_PODCAST_RSS_URL!)
     const episode = feed.items.find((i: any) => i.link?.endsWith(slug))
     if (!episode) return <p>Episode ikke fundet</p>
 
