@@ -2,12 +2,11 @@ import { SiSpotify, SiAmazonmusic, SiApplepodcasts, SiCastbox, SiIheartradio, Si
 
 const links = {
   spotify: process.env.NEXT_PUBLIC_LINK_SPOTIFY || 'https://open.spotify.com/show/3CZGNGwmcXo80sy8Mhhl1u',
-  amazon: process.env.NEXT_PUBLIC_LINK_AMAZON_MUSIC || '#',
-  apple: process.env.NEXT_PUBLIC_LINK_APPLE_PODCASTS || '#',
-  castbox: process.env.NEXT_PUBLIC_LINK_CASTBOX || '#',
-  goodpods: process.env.NEXT_PUBLIC_LINK_GOODPODS || '#',
-  iheartradio: process.env.NEXT_PUBLIC_LINK_IHEARTRADIO || '#',
-  overcast: process.env.NEXT_PUBLIC_LINK_OVERCAST || '#',
+  amazon: process.env.NEXT_PUBLIC_LINK_AMAZON_MUSIC || 'https://music.amazon.com/podcasts/8254bae3-3d57-455e-b531-0cd4854164ca/idioter-med-computere',
+  apple: process.env.NEXT_PUBLIC_LINK_APPLE_PODCASTS || 'https://podcasts.apple.com/dk/podcast/idioter-med-computere/id1843089371?l=da',
+  castbox: process.env.NEXT_PUBLIC_LINK_CASTBOX || 'https://castbox.fm/channel/Idioter-med-Computere-id6774079?country=us',
+  goodpods: process.env.NEXT_PUBLIC_LINK_GOODPODS || 'https://goodpods.com/podcasts/idioter-med-computere-720674',
+  overcast: process.env.NEXT_PUBLIC_LINK_OVERCAST || 'https://overcast.fm/itunes1843089371',
   pocketcasts: process.env.NEXT_PUBLIC_LINK_POCKETCASTS || 'https://pca.st/k18pijwu',
   rss: process.env.NEXT_PUBLIC_LINK_RSS || 'https://anchor.fm/s/109da48b4/podcast/rss',
 }
@@ -18,7 +17,7 @@ const providers = [
   { name: 'Apple Podcasts', icon: SiApplepodcasts, href: links.apple },
   { name: 'Castbox', icon: SiCastbox, href: links.castbox },
   { name: 'Goodpods', icon: SiRss, href: links.goodpods },
-  { name: 'iHeartRadio', icon: SiIheartradio, href: links.iheartradio },
+  //{ name: 'iHeartRadio', icon: SiIheartradio, href: links.iheartradio },
   { name: 'Overcast', icon: SiOvercast, href: links.overcast },
   { name: 'Pocket Casts', icon: SiPocketcasts, href: links.pocketcasts },
   { name: 'RSS Feed', icon: SiRss, href: links.rss },
