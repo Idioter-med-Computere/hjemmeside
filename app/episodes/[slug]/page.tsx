@@ -2,6 +2,8 @@ import Parser from 'rss-parser'
 import PodcastPlayer from '@/components/PodcastPlayer'
 import parse from 'html-react-parser'
 
+export const revalidate = 0
+
 export default async function EpisodePage(props: { params: Promise<{ slug: string }> }) {
     const parser = new Parser({
         customFields: { item: ['content:encoded'] },

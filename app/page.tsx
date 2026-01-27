@@ -1,9 +1,30 @@
 import Image from 'next/image'
+import Parser from 'rss-parser'
 import Avatar from '@/components/Avatar'
 import SectionGradients from '@/components/SectionGradients'
-import LatestEpisodes from '@/components/LatestEpisodes'
+import { getSlug } from '@/lib/podcastutils'
 
-export default function HomePage() {
+export const dynamic = 'force-dynamic'
+
+async function getLatest() {
+    const url = process.env.NEXT_PUBLIC_PODCAST_RSS_URL
+    if (!url) return []
+    try {
+        const parser = new Parser({ headers: { 'user-agent': 'IdioterMedComputere/1.0' } })
+        const feed = await parser.parseURL(url)
+        return (feed.items ?? []).slice(0, 3).map((it: any) => ({
+            title: it.title ?? 'Uden titel',
+            date: it.isoDate ?? it.pubDate ?? null,
+            snippet: String((it.contentSnippet ?? it.content ?? '').replace(/<[^>]+>/g, '')).slice(0, 180),
+            link: it.link ?? '#',
+        }))
+    } catch {
+        return []
+    }
+}
+
+export default async function HomePage() {
+    const latest = await getLatest()
 
     return (
         <div className="bg-[--bg] text-[--text]">
@@ -87,7 +108,36 @@ export default function HomePage() {
                             </a>
                         </div>
 
-                        <LatestEpisodes />
+                        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                            {latest.map((ep) => (
+                                <article
+                                    key={ep.link}
+                                    className="group relative overflow-hidden rounded-xl bg-[#1a1a1a] border border-white/10 hover:border-[--accent]/50 transition"
+                                >
+                                    <span className="pointer-events-none absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-transparent via-[--accent] to-transparent opacity-70"/>
+                                    <div className="p-6">
+                                        <h3 className="font-display text-lg text-white leading-tight">
+                                            {ep.title}
+                                        </h3>
+                                        <p className="text-[--text-dim] text-xs mt-1 uppercase tracking-wide">
+                                            {ep.date ? new Date(ep.date).toLocaleDateString('da-DK') : ''}
+                                        </p>
+                                        <p className="mt-4 text-[--text] text-sm leading-relaxed line-clamp-3">
+                                            {ep.snippet}
+                                            {ep.snippet && ep.snippet.length === 180 ? '…' : ''}
+                                        </p>
+                                        <div className="mt-5">
+                                            <a
+                                                href={`/episodes/${getSlug(ep.link)}`}
+                                                className="inline-flex items-center justify-center rounded-lg border border-white/20 px-4 py-2 text-sm hover:border-[--accent] hover:text-[--accent] transition"
+                                            >
+                                                Lyt nu
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
