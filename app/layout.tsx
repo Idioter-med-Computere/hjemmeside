@@ -10,6 +10,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'sw
 export const metadata: Metadata = {
   title: 'Idioter Med Computere',
   description: 'En tech-podcast om alt det dumme, folk laver med computere.',
+  icons: { icon: '/favicon.png' },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
